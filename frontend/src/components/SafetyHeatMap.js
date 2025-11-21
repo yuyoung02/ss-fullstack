@@ -1,6 +1,7 @@
 /* global google */
 import { useEffect, useRef, useState } from "react";
 import { Card } from "./ui/card";
+import { API_BASE_URL } from '../apiConfig'; // 경로 맞게
 
 export function SafetyHeatMap({
   location,
@@ -35,7 +36,7 @@ export function SafetyHeatMap({
         setLoadError(null);
 
         const res = await fetch(
-          `http://localhost:4000/api/safety/${city.toLowerCase()}/areas`
+          `${API_BASE_URL}/api/safety/${city.toLowerCase()}/areas`
         );
         if (!res.ok) {
           throw new Error(`${city} 안전도 데이터를 불러오지 못했습니다.`);
