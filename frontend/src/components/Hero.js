@@ -22,7 +22,7 @@ export function Hero({ onSearch, isLoading }) {
       </h1>
 
       <p className="text-gray-600 mb-12 max-w-2xl">
-        여행지의 안전성, 접근성, 편의성을 한눈에 확인하세요.
+        여행지 숙소의 안전성, 접근성, 편의성을 한눈에 확인하세요.
         <br />
         데이터 기반 인텔리전스로 더 안전하고 편리한 여행을 계획하세요.
       </p>
