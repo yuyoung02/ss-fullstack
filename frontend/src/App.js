@@ -12,6 +12,7 @@ import { LocationSidebar } from './components/LocationSidebar';
 import { ComparisonView } from './components/ComparisonView';
 import { Button } from './components/ui/button';
 import { LayoutGrid, List } from 'lucide-react';
+import { API_BASE_URL } from './apiConfig';
 
 // 주소 → 도시 판별 함수
 function detectCityByLatLng(lat, lng) {
@@ -42,9 +43,7 @@ export default function App() {
     try {
       // 1) stay-score API 호출
       const res = await fetch(
-        `http://localhost:4000/api/stay-score?address=${encodeURIComponent(
-          location
-        )}`
+        `${API_BASE_URL}/api/stay-score?address=${encodeURIComponent(location)}`
       );
 
       if (!res.ok) throw new Error('Stay Score API Error');
@@ -108,7 +107,7 @@ export default function App() {
         try {
           // ✅ 나중에 seoul, la 추가하면 그대로 확장 가능
           const safetyRes = await fetch(
-            `http://localhost:4000/api/safety/${city.toLowerCase()}/point?lat=${lat}&lng=${lng}`
+            `${API_BASE_URL}/api/safety/${city.toLowerCase()}/point?lat=${lat}&lng=${lng}`
           );
           if (safetyRes.ok) {
             const safetyData = await safetyRes.json();
